@@ -130,6 +130,21 @@ Customize `train_data_weights` with your task names (same as the subdirectory na
 
 ---
 
+### LoRA Training
+
+For parameter-efficient fine-tuning, you can use **PEFT LoRA** instead of full-parameter training. Add `--use_peft_lora` and set `--lora_r` (e.g. 8, 16, 32, 64), `--lora_alpha` (often same as `lora_r` or 2×), and optionally `--lora_dropout` and `--lora_target_modules`. With LoRA, only adapter weights are trained; checkpoints save the adapter only (when using FSDP, the full model is not merged). To resume or load a pretrained adapter, use `--lora_path`. Example: `examples/train_lora.sh`.
+
+| Argument | Description |
+|----------|-------------|
+| `--use_peft_lora` | Enable PEFT LoRA fine-tuning |
+| `--lora_r` | LoRA rank (e.g. 8, 16, 32, 64) |
+| `--lora_alpha` | LoRA alpha (often same as `lora_r`) |
+| `--lora_dropout` | LoRA dropout |
+| `--lora_target_modules` | Comma-separated module names to apply LoRA |
+| `--lora_path` | Path to pretrained LoRA adapter (for resume or inference) |
+
+---
+
 ## Dependencies and Environment
 
 - Python 3.12

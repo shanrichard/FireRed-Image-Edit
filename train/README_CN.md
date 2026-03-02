@@ -130,6 +130,21 @@ accelerate launch --mixed_precision="bf16" --use_fsdp \
 
 ---
 
+### LoRA 训练
+
+在训练命令中加上 `--use_peft_lora`，并设置 `--lora_r`（如 8、16、32、64）、`--lora_alpha`（通常与 `lora_r` 相同或为其 2 倍），以及可选的 `--lora_dropout`、`--lora_target_modules`。LoRA 仅训练 adapter 权重，保存的 checkpoint 只包含 adapter（使用 FSDP 时不会合并成全量模型）。若要继续训练或加载已有 adapter，使用 `--lora_path`。示例脚本：`examples/train_lora.sh`。
+
+| 参数 | 说明 |
+|------|------|
+| `--use_peft_lora` | 启用 PEFT LoRA 微调 |
+| `--lora_r` | LoRA rank（如 8、16、32、64） |
+| `--lora_alpha` | LoRA alpha（通常与 `lora_r` 相同） |
+| `--lora_dropout` | LoRA dropout |
+| `--lora_target_modules` | 施加 LoRA 的模块名，逗号分隔 |
+| `--lora_path` | 预训练 LoRA adapter 路径（用于续训或推理） |
+
+---
+
 ## 依赖与环境
 
 - Python 3.12
