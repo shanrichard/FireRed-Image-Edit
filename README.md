@@ -68,9 +68,10 @@ Some real outputs produced by FireRed-Image-Edit across general editing.
 
 ### Portrait
 <p align="center">
-    <img src="./assets/showcase_portrait.png" width="800"/>
-<p> 
-
+    <a href="./assets/showcase_portrait.png">
+        <img src="./assets/showcase_portrait.jpg" width="800"/>
+    </a>
+<p>
 
 ### Multi-image-fusion
 <p align="center">
