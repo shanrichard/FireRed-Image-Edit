@@ -66,14 +66,14 @@ FireRed-Image-Edit establishes a new state-of-the-art among open-source models o
 ## 🎨 Showcase
 Some real outputs produced by FireRed-Image-Edit across general editing.
 
-### Portrait
+### Portrait([More Case](docs/portrait.md))
 <p align="center">
     <a href="./assets/showcase_portrait.png">
         <img src="./assets/showcase_portrait.jpg" width="800"/>
     </a>
 <p>
 
-### Multi-image-fusion
+### Multi-image-fusion([More Case](docs/multi_image.md))
 <p align="center">
     <img src="./assets/showcase_multi_fusion.png" width="800"/>
 <p> 
@@ -84,7 +84,7 @@ Some real outputs produced by FireRed-Image-Edit across general editing.
 <p> 
 
 
-### Text Style Reference([Lora](https://huggingface.co/FireRedTeam/FireRed-Image-Edit-LoRA-Zoo/blob/main/FireRed-Image-Edit-Covercraft.safetensors))
+### Text Style Reference([Lora](https://huggingface.co/FireRedTeam/FireRed-Image-Edit-LoRA-Zoo/blob/main/FireRed-Image-Edit-Covercraft.safetensors))([More Case](docs/text.md))
 <p align="center">
     <img src="./assets/showcase_mult_text.png" width="800"/>
 <p> 
