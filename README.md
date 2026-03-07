@@ -9,7 +9,7 @@
   <a href="https://huggingface.co/spaces/FireRedTeam/FireRed-Image-Edit-1.1" target="_blank"><img alt="HF Demo" src="https://img.shields.io/badge/%F0%9F%A4%97%20HF%20Demo-FireRed--Image--Edit--1.1-red" style="display: inline-block;"/></a>
   <a href="https://modelscope.cn/models/FireRedTeam/FireRed-Image-Edit-1.1" target="_blank"><img alt="ModelScope Model" src="https://img.shields.io/badge/%F0%9F%A4%96%20ModelScope-FireRed--Image--Edit--1.1-624aff" style="display: inline-block;"/></a>
   <a href="https://modelscope.cn/models/FireRedTeam/FireRed-Image-Edit-1.0" target="_blank"><img alt="ModelScope Model" src="https://img.shields.io/badge/%F0%9F%A4%96%20ModelScope-FireRed--Image--Edit--1.0-624aff" style="display: inline-block;"/></a>
-  <a href="https://modelscope.cn/studios/FireRedTeam/FireRed-Image-Edit-1.1" target="_blank"><img alt="MS Demo" src="https://img.shields.io/badge/%F0%9F%A4%96%20MS%20Demo-FireRed--Image--Edit--1.0-624aff" style="display: inline-block;"/></a>
+  <a href="https://modelscope.cn/studios/FireRedTeam/FireRed-Image-Edit-1.1" target="_blank"><img alt="MS Demo" src="https://img.shields.io/badge/%F0%9F%A4%96%20MS%20Demo-FireRed--Image--Edit--1.1-624aff" style="display: inline-block;"/></a>
   <a href='https://github.com/FireRedTeam/FireRed-Image-Edit'><img src='https://img.shields.io/badge/GitHub-Code-black'></a>
   <a href='https://www.apache.org/licenses/LICENSE-2.0'><img src="https://img.shields.io/badge/license-Apache%202.0-blue" alt="License"></a>
   <a href="https://arxiv.org/abs/2602.13344" target="_blank"><img src="https://img.shields.io/badge/Report-b5212f.svg?logo=arxiv"></a>
