@@ -13,7 +13,7 @@
     }
   ],
   "config": {
-    "gpuTypeId": "NVIDIA A100 80GB PCIe",
+    "gpuTypeId": "NVIDIA A100-SXM4-80GB",
     "gpuCount": 1,
     "env": [
       {
