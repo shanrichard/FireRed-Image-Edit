@@ -11,19 +11,27 @@ _VOLUME_PATH = "/runpod-volume/models/FireRed-Image-Edit-1.1"
 _HF_MODEL_ID = os.environ.get("MODEL_ID", "FireRedTeam/FireRed-Image-Edit-1.1")
 MODEL_ID = _VOLUME_PATH if os.path.isdir(_VOLUME_PATH) else _HF_MODEL_ID
 
-# 启动时打印诊断信息
+# 把 transformers 里存在但未导出的类注入到顶层命名空间
+# 解决 diffusers 用 `from transformers import Qwen2_5_VLForConditionalGeneration` 找不到的问题
 import transformers
-print(f"[DIAG] transformers version: {transformers.__version__}")
-try:
-    from transformers import Qwen2_5_VLForConditionalGeneration
-    print("[DIAG] Qwen2_5_VLForConditionalGeneration: OK")
-except ImportError as e:
-    print(f"[DIAG] Qwen2_5_VLForConditionalGeneration: MISSING - {e}")
-try:
-    from transformers import Qwen2VLProcessor
-    print("[DIAG] Qwen2VLProcessor: OK")
-except ImportError as e:
-    print(f"[DIAG] Qwen2VLProcessor: MISSING - {e}")
+print(f"[PATCH] transformers version: {transformers.__version__}")
+_patches = {
+    "Qwen2_5_VLForConditionalGeneration": "transformers.models.qwen2_5_vl.modeling_qwen2_5_vl",
+    "Qwen2VLProcessor": "transformers.models.qwen2_vl.processing_qwen2_vl",
+    "Qwen2Tokenizer": "transformers.models.qwen2.tokenization_qwen2",
+}
+for _cls_name, _module_path in _patches.items():
+    if not hasattr(transformers, _cls_name):
+        try:
+            import importlib as _il
+            _mod = _il.import_module(_module_path)
+            _cls = getattr(_mod, _cls_name)
+            setattr(transformers, _cls_name, _cls)
+            print(f"[PATCH] injected {_cls_name}")
+        except Exception as _e:
+            print(f"[PATCH] failed to inject {_cls_name}: {_e}")
+    else:
+        print(f"[PATCH] {_cls_name} already in transformers")
 
 # 全局 pipeline 缓存（懒加载）
 _pipeline = None
