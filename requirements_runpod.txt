@@ -1,8 +1,8 @@
 runpod
 Pillow
-diffusers
+git+https://github.com/huggingface/diffusers.git
+git+https://github.com/huggingface/transformers.git
 accelerate
-transformers>=4.51.0
 tqdm
 optimum-quanto
 sentencepiece
