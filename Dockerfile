@@ -6,8 +6,8 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y git libgl1 libglib2.0-0 && rm -rf /var/lib/apt/lists/*
 
 # 安装 Python 依赖
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements_runpod.txt .
+RUN pip install --no-cache-dir -r requirements_runpod.txt
 
 # 模型不打入镜像，运行时从 Network Volume 或 HuggingFace 加载
 # Network Volume 路径: /runpod-volume/models/FireRed-Image-Edit-1.1
