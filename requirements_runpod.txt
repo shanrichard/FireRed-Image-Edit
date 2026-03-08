@@ -1,0 +1,10 @@
+runpod
+torch
+Pillow
+diffusers>=0.33.0
+accelerate
+transformers>=4.51.0
+tqdm
+cache_dit
+optimum-quanto
+sentencepiece

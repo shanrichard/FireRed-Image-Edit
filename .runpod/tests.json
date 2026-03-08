@@ -1,0 +1,32 @@
+{
+  "tests": [
+    {
+      "name": "test_image_edit",
+      "input": {
+        "image_b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "prompt": "Make the image look like a painting",
+        "seed": 42,
+        "num_inference_steps": 40,
+        "true_cfg_scale": 4.0
+      },
+      "timeout": 300000
+    }
+  ],
+  "config": {
+    "gpuTypeId": "NVIDIA A100 80GB PCIe",
+    "gpuCount": 1,
+    "env": [
+      {
+        "key": "MODEL_ID",
+        "value": "FireRedTeam/FireRed-Image-Edit-1.1"
+      }
+    ],
+    "allowedCudaVersions": [
+      "12.4",
+      "12.3",
+      "12.2",
+      "12.1",
+      "12.0"
+    ]
+  }
+}

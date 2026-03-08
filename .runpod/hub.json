@@ -1,0 +1,36 @@
+{
+  "title": "FireRed Image Edit",
+  "description": "Open-source image editing foundation model with precise instruction following, high-fidelity generation, and superior identity consistency.",
+  "type": "serverless",
+  "category": "image",
+  "iconUrl": "https://raw.githubusercontent.com/shanrichard/FireRed-Image-Edit/main/assets/logo.png",
+  "config": {
+    "runsOn": "GPU",
+    "containerDiskInGb": 50,
+    "presets": [
+      {
+        "name": "FireRed-Image-Edit-1.1",
+        "defaults": {
+          "MODEL_ID": "FireRedTeam/FireRed-Image-Edit-1.1"
+        }
+      },
+      {
+        "name": "FireRed-Image-Edit-1.0",
+        "defaults": {
+          "MODEL_ID": "FireRedTeam/FireRed-Image-Edit-1.0"
+        }
+      }
+    ],
+    "env": [
+      {
+        "key": "MODEL_ID",
+        "input": {
+          "name": "Model ID",
+          "type": "string",
+          "description": "HuggingFace model ID or local path",
+          "default": "FireRedTeam/FireRed-Image-Edit-1.1"
+        }
+      }
+    ]
+  }
+}
