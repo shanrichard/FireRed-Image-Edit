@@ -11,6 +11,20 @@ _VOLUME_PATH = "/runpod-volume/models/FireRed-Image-Edit-1.1"
 _HF_MODEL_ID = os.environ.get("MODEL_ID", "FireRedTeam/FireRed-Image-Edit-1.1")
 MODEL_ID = _VOLUME_PATH if os.path.isdir(_VOLUME_PATH) else _HF_MODEL_ID
 
+# 启动时打印诊断信息
+import transformers
+print(f"[DIAG] transformers version: {transformers.__version__}")
+try:
+    from transformers import Qwen2_5_VLForConditionalGeneration
+    print("[DIAG] Qwen2_5_VLForConditionalGeneration: OK")
+except ImportError as e:
+    print(f"[DIAG] Qwen2_5_VLForConditionalGeneration: MISSING - {e}")
+try:
+    from transformers import Qwen2VLProcessor
+    print("[DIAG] Qwen2VLProcessor: OK")
+except ImportError as e:
+    print(f"[DIAG] Qwen2VLProcessor: MISSING - {e}")
+
 # 全局 pipeline 缓存（懒加载）
 _pipeline = None
 
