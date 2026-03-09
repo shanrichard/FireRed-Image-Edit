@@ -1,6 +1,6 @@
 runpod
 Pillow
-diffusers
+diffusers>=0.36.0
 accelerate
 transformers>=4.49.0,<5.0.0
 tqdm

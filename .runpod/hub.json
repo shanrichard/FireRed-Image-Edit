@@ -6,7 +6,7 @@
   "iconUrl": "https://raw.githubusercontent.com/shanrichard/FireRed-Image-Edit/main/assets/logo.png",
   "config": {
     "runsOn": "GPU",
-    "containerDiskInGb": 50,
+    "containerDiskInGb": 100,
     "presets": [
       {
         "name": "FireRed-Image-Edit-1.1",

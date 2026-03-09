@@ -28,11 +28,15 @@ for _cls_name, _module_path in _patches.items():
             _mod = _il.import_module(_module_path)
             _cls = getattr(_mod, _cls_name)
             setattr(transformers, _cls_name, _cls)
-            print(f"[PATCH] injected {_cls_name}")
+            print(f"[PATCH] injected {_cls_name} from {_module_path}")
         except Exception as _e:
-            print(f"[PATCH] failed to inject {_cls_name}: {_e}")
+            # 注入失败则直接报错退出，避免后续出更难查的问题
+            print(f"[PATCH] FATAL: failed to inject {_cls_name}: {_e}")
+            import traceback
+            traceback.print_exc()
+            raise
     else:
-        print(f"[PATCH] {_cls_name} already in transformers")
+        print(f"[PATCH] {_cls_name} already in transformers.__dict__")
 
 # 全局 pipeline 缓存（懒加载）
 _pipeline = None
