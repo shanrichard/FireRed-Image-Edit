@@ -20,10 +20,11 @@ _patches = {
     "Qwen2VLProcessor": "transformers.models.qwen2_vl.processing_qwen2_vl",
     "Qwen2Tokenizer": "transformers.models.qwen2.tokenization_qwen2",
 }
+import importlib as _il
 for _cls_name, _module_path in _patches.items():
-    if not hasattr(transformers, _cls_name):
+    # 用 __dict__ 检查，避免触发 transformers 的 lazy import __getattr__
+    if _cls_name not in transformers.__dict__:
         try:
-            import importlib as _il
             _mod = _il.import_module(_module_path)
             _cls = getattr(_mod, _cls_name)
             setattr(transformers, _cls_name, _cls)
