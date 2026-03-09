@@ -1,6 +1,6 @@
 # This file is for reference only. Actual install order is controlled by Dockerfile
 # to prevent pip from upgrading the base image's CUDA-specific torch.
-# v1.0.14 - force cache bust
+# v1.0.15 - also --no-deps for optimum-quanto (requires torch>=2.6.0)
 runpod
 Pillow
 diffusers>=0.36.0
