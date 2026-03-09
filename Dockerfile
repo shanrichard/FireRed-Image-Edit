@@ -1,4 +1,4 @@
-FROM runpod/pytorch:2.4.0-py3.11-cuda12.4.1-devel-ubuntu22.04
+FROM runpod/pytorch:2.8.0-py3.11-cuda12.8.1-cudnn-devel-ubuntu22.04
 
 WORKDIR /app
 
@@ -6,13 +6,9 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y git libgl1 libglib2.0-0 && rm -rf /var/lib/apt/lists/*
 
 # 安装 Python 依赖
-# 关键：base image 自带 torch 2.4.1+cu124（CUDA 专用版），绝不能让 pip 升级它
-# 先用 --no-deps 装 diffusers 和 accelerate，避免它们的依赖链拉新 torch
+# base image 自带 torch 2.8.0+cu128，满足所有依赖的版本要求
 COPY requirements_runpod.txt .
-# diffusers 和 accelerate 依赖 torch，用 --no-deps 防止升级 base image 的 torch
-# optimum-quanto 已移除：handler 不用量化且它要求 torch>=2.6.0 与 base image 不兼容
-RUN pip install --no-cache-dir --no-deps "diffusers>=0.36.0" accelerate && \
-    pip install --no-cache-dir runpod Pillow "transformers>=4.49.0,<5.0.0" tqdm sentencepiece && \
+RUN pip install --no-cache-dir -r requirements_runpod.txt && \
     pip install --no-cache-dir --force-reinstall "transformers>=4.49.0,<5.0.0"
 
 # 模型不打入镜像，运行时从 Network Volume 或 HuggingFace 加载
